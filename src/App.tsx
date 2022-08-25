@@ -1,25 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CFI } from "cfi-components/dist"
 
 function App() {
+
+  const onFocus = (data: { value: string, formatValue?: string }) => {
+    console.log(data.value)
+    console.log(data.formatValue)
+  }
+
+  const lostFocus = (data: { value: string, formatValue?: string }) => {
+    console.log(data.value)
+    console.log(data.formatValue)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CFI.GridContainer>
+
+      <CFI.TextInput
+        idResource="telefone"
+        className="col-2"
+        id="tel"
+        onFocus={onFocus}
+        onLostFocus={lostFocus}
+        type="tel"
+
+      />
+      <CFI.TextInput
+        idResource="email"
+        id="email"
+        className="col-2"
+        onFocus={onFocus}
+        onLostFocus={lostFocus}
+        type="email"
+
+      />
+      <CFI.TextInput
+        idResource="cadastroAditivos"
+        id="cadastroAditivos"
+        className="col-3"
+        onFocus={onFocus}
+        onLostFocus={lostFocus}
+        type="text"
+
+      />
+      <CFI.TextInput
+        idResource="cadastroAditivos"
+        id="password"
+        className="col-2"
+        onFocus={onFocus}
+        onLostFocus={lostFocus}
+        type="password"
+
+      />
+    </CFI.GridContainer>
+
   );
 }
 
